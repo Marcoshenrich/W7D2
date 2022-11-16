@@ -11,6 +11,18 @@
 
 <h1>- Glorify -</h1>
 
+<% if logged_in? %>
+<form action="<%= session_url %>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+<button>Sign Out!</button>
+</form>
+<%end%>
+
+<% unless logged_in? %>
+<a href="<%= new_session_url %>" ><button>Sign In</button></a>
+<%end%>
+
 <div id="banner"></div>
   <div id="body">
     <body>
